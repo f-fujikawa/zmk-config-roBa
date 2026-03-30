@@ -13,6 +13,7 @@
             , <&gpio0 10 GPIO_ACTIVE_HIGH>
             ;
 };
+
 #include <input/processors.dtsi>
 
 &zip_temp_layer {
@@ -21,6 +22,14 @@
         19 // K  (MB3)
         21 // L  (MB2)
     >;
+};
+
+/ {
+    trackball_listener: trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+        input-processors = <&zip_temp_layer 4 10000>;
+    };
 };
 
 / {
