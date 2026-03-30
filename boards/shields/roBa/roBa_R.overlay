@@ -13,7 +13,25 @@
             , <&gpio0 10 GPIO_ACTIVE_HIGH>
             ;
 };
+#include <input/processors.dtsi>
 
+&zip_temp_layer {
+    excluded-positions = 
+        18 // J  (MB1)
+        19 // K  (MB3)
+        21 // L  (MB2)
+    >;
+};
+
+/ {
+    trackball_listener: trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+        input-processors = <&zip_temp_layer 4 10000>;
+    };
+};
+
+/*
 / {
     trackball_listener {
         status = "okay";
@@ -21,7 +39,7 @@
         device = <&trackball>;
     };
 };
-
+*/
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
