@@ -12,7 +12,7 @@
 };
 
 &trackball {
-    automouse-layer = <4>;
+    // automouse-layer = <4>;  // Input Processorに移行したためコメントアウト
     scroll-layers = <5>;
 
     // arrows {
@@ -165,4 +165,7 @@
             >;
         };
     };
+};
+&mkp_input_listener {
+    input-processors = <&zip_temp_layer 4 10000>;
 };
