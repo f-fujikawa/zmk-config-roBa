@@ -31,7 +31,7 @@
     };
 };
 
-/*
+/*旧設定（Input Processorに移行したためコメントアウト）
 / {
     trackball_listener {
         status = "okay";
